@@ -1,0 +1,9 @@
+c:\users\kisem\documents\visual studio 2015\Projects\FileMaid\FileMaid\bin\Debug\FileMaid.exe.config
+c:\users\kisem\documents\visual studio 2015\Projects\FileMaid\FileMaid\bin\Debug\FileMaid.exe
+c:\users\kisem\documents\visual studio 2015\Projects\FileMaid\FileMaid\bin\Debug\FileMaid.pdb
+c:\users\kisem\documents\visual studio 2015\Projects\FileMaid\FileMaid\obj\Debug\FileMaid.csprojResolveAssemblyReference.cache
+c:\users\kisem\documents\visual studio 2015\Projects\FileMaid\FileMaid\obj\Debug\FileMaid.Properties.Resources.resources
+c:\users\kisem\documents\visual studio 2015\Projects\FileMaid\FileMaid\obj\Debug\FileMaid.csproj.GenerateResource.Cache
+c:\users\kisem\documents\visual studio 2015\Projects\FileMaid\FileMaid\obj\Debug\FileMaid.exe
+c:\users\kisem\documents\visual studio 2015\Projects\FileMaid\FileMaid\obj\Debug\FileMaid.pdb
+c:\users\kisem\documents\visual studio 2015\Projects\FileMaid\FileMaid\obj\Debug\FileMaid.MainForm.resources

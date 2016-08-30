@@ -1,0 +1,13 @@
+﻿A(z) „C:\Users\Kisem\Documents\Visual Studio 2015\Projects\FileMaid\FileMaid\bin\Release\FileMaid.exe” szerelvény telepítése
+Az érintett paraméterek:
+   logtoconsole = 
+   assemblypath = C:\Users\Kisem\Documents\Visual Studio 2015\Projects\FileMaid\FileMaid\bin\Release\FileMaid.exe
+   logfile = C:\Users\Kisem\Documents\Visual Studio 2015\Projects\FileMaid\FileMaid\bin\Release\FileMaid.InstallLog
+Nem találhatók RunInstallerAttribute.Yes attribútummal rendelkező nyilvános telepítők a(z) C:\Users\Kisem\Documents\Visual Studio 2015\Projects\FileMaid\FileMaid\bin\Release\FileMaid.exe szerelvényben.
+A(z) „C:\Users\Kisem\Documents\Visual Studio 2015\Projects\FileMaid\FileMaid\bin\Release\FileMaid.exe” szerelvény véglegesítése
+Az érintett paraméterek:
+   logtoconsole = 
+   assemblypath = C:\Users\Kisem\Documents\Visual Studio 2015\Projects\FileMaid\FileMaid\bin\Release\FileMaid.exe
+   logfile = C:\Users\Kisem\Documents\Visual Studio 2015\Projects\FileMaid\FileMaid\bin\Release\FileMaid.InstallLog
+Nem találhatók RunInstallerAttribute.Yes attribútummal rendelkező nyilvános telepítők a(z) C:\Users\Kisem\Documents\Visual Studio 2015\Projects\FileMaid\FileMaid\bin\Release\FileMaid.exe szerelvényben.
+Eltávolítja az InstallState fájlt, mert nincsenek telepítők.
