@@ -17,7 +17,8 @@ namespace FileMaid
         static Timer timer = new Timer();
         public static List<FileType> FileTypes = new List<FileType>();
         #endregion
-
+        
+        // Program startup (before the form load)
         public static void Initialize()
         {
             // Set timer
@@ -37,32 +38,36 @@ namespace FileMaid
                 FileTypes.Add(new FileType(name, formats.ToList()));
             }
         }
-
+        
+        // Function that scans the defined folder and returns a list with the whitelisted files
         public static List<FileInfo> GetFiles()
         {
-            // Get all files from the specified folder and return them
+            // Get all files from the specified folder
             List<FileInfo> allFiles = dirInfo.GetFiles("*.*").ToList();
+
+            // Create an empty list that will contain the allowed files
             List<FileInfo> allowedFiles = new List<FileInfo>();
 
             // Iterate through defined filetypes
             foreach (FileType fileType in FileTypes)
             {
                 // Check if the current filetype's folder exists, and if not, then create it
-                if (!Directory.Exists(pathDownload + "\\" + fileType.Name))
-                {
-                    dirInfo.CreateSubdirectory(fileType.Name);
-                }
+                dirInfo.CreateSubdirectory(fileType.Name);
 
                 // Iterate through defined extensions of each filetype to filter the files
                 foreach (string format in fileType.Extensions)
                 {
                     foreach (var file in allFiles)
                     {
+                        // Check if the current files extension is on the list
                         if (format == file.Extension.Replace(".", ""))
                         {
+                            // Add the file to the allowedFiles list if it's type defined
                             allowedFiles.Add(file);
                         }
                     }
+
+                    // Remove allowedFiles from allFiles
                     foreach (var file in allowedFiles)
                     {
                         allFiles.Remove(file);
@@ -71,6 +76,8 @@ namespace FileMaid
             }
             return allowedFiles;
         }
+
+        // Function to move each file to its subfolder
         public static void MoveFilesToSubfolders(List<FileInfo> files)
         {
             // Check if the folder has any files to move
@@ -92,9 +99,14 @@ namespace FileMaid
                         {
                             continue;
                         }
-
+                        
+                        #region BLACKMAGIC ALERT
                         // Black magic stuff bellow
                         // Needs a lot of work to make it flawless
+
+                        // (At this point it won't make any big mistakes, but it can not recognize the format of dupe files.
+                        // For example: file (1).zip will going to be file (1) (1).zip) if there is already a file with the same name
+
                         string subfolderPath = pathDownload + "\\" + fileType.Name + "\\";
                         string fileName = file.Name.Substring(0, file.Name.Length - file.Extension.Length);
                         string movePath = subfolderPath + file.Name;
@@ -107,7 +119,10 @@ namespace FileMaid
                             }
                             movePath = subfolderPath + fileName + " (" + i + ")" + file.Extension;
                         }
+                        // Black magic region is over, you can continue the review from this line
+                        #endregion
 
+                        // Try to move the file (if it is used by another process or any error occurs, then print the exception to the console)
                         try
                         {
                             Console.WriteLine("Move file to " + movePath);
@@ -121,15 +136,16 @@ namespace FileMaid
                     }
                 }
             }
+            
 
-            if (filesMoved == 0) return;
-
+            // Print a nice message for the user
             Console.WriteLine("========================");
             Console.WriteLine("Done!   "+ filesMoved +" file"+ (filesMoved == 1 ? "" : "s") +" moved");
             Console.WriteLine("========================");
-
         }
 
+
+        // Function that is called every time, when timer ticks
         private static void TimerTick(object source, ElapsedEventArgs e)
         {
             var files = GetFiles();
